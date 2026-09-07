@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "description": "Replay benchmarks for OP3 PPO checkpoints. Run via scripts/run_checkpoint_benchmarks.sh.",
+  "defaults": {
+    "num_envs": 128,
+    "max_steps": 150,
+    "stage": "walk_easy",
+    "zero_command": false,
+    "stochastic": false
+  },
+  "cases": [
+    {
+      "name": "walk_best_smoke",
+      "description": "Current curated pure-PPO walk baseline. This should stay passable before replacing checkpoints/op3_walk_best.pt.",
+      "checkpoint": "checkpoints/op3_walk_best.pt",
+      "stage": "walk_easy",
+      "num_envs": 128,
+      "max_steps": 150,
+      "thresholds": {
+        "max_fallen_by_step40": 8,
+        "max_fallen_by_step50": 24,
+        "max_fallen_by_step100": 96,
+        "min_alive_at_end": 16,
+        "max_abs_roll_env0": 1.0,
+        "max_abs_pitch_env0": 1.0
+      }
+    },
+    {
+      "name": "stand_best_danger_zone",
+      "description": "Standing baseline gate focused on the known step 35-50 danger zone.",
+      "checkpoint": "checkpoints/op3_stand_best.pt",
+      "stage": "stand",
+      "num_envs": 128,
+      "max_steps": 150,
+      "thresholds": {
+        "max_fallen_by_step40": 16,
+        "max_fallen_by_step50": 24,
+        "max_fallen_by_step100": 96,
+        "min_alive_at_end": 16,
+        "max_abs_roll_env0": 1.0,
+        "max_abs_pitch_env0": 1.0
+      }
+    },
+    {
+      "name": "rebalanced_candidate",
+      "description": "Candidate benchmark for the best reward-rebalanced walk lineage. Passing does not automatically promote it; compare JSON metrics against walk_best_smoke.",
+      "checkpoint": "logs/op3_walk_easy_rebalanced/model_11149.pt",
+      "stage": "walk_easy_rebalanced",
+      "num_envs": 128,
+      "max_steps": 200,
+      "thresholds": {
+        "max_fallen_by_step40": 8,
+        "max_fallen_by_step50": 32,
+        "max_fallen_by_step100": 112,
+        "min_alive_at_end": 0,
+        "max_abs_roll_env0": 1.2,
+        "max_abs_pitch_env0": 1.2
+      }
+    },
+    {
+      "name": "latest_rollout48_regression_check",
+      "description": "Regression check for rollout48/rebalanced continuation. Expected to be no better than rebalanced_candidate unless replay proves otherwise.",
+      "checkpoint": "logs/op3_walk_easy_rebalanced_rollout48/model_11800.pt",
+      "stage": "walk_easy_rebalanced",
+      "num_envs": 128,
+      "max_steps": 200,
+      "thresholds": {
+        "max_fallen_by_step40": 8,
+        "max_fallen_by_step50": 32,
+        "max_fallen_by_step100": 112,
+        "min_alive_at_end": 0,
+        "max_abs_roll_env0": 1.2,
+        "max_abs_pitch_env0": 1.2
+      }
+    }
+  ]
+}

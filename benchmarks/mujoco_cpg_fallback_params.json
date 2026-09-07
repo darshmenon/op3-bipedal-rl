@@ -1,0 +1,41 @@
+{
+  "best": {
+    "alive_at_end": 8,
+    "fall_steps": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "max_abs_pitch_mean": null,
+    "max_abs_roll_mean": null,
+    "mean_alive_steps": 300.0,
+    "mean_progress_x": 0.191,
+    "params": {
+      "action_clip": 3.3884577305450416,
+      "ankle_comp": 0.8854476864969378,
+      "hip_amp": -0.4157339098545849,
+      "knee_amp": 0.4304237328159283,
+      "lateral_shift_amp": 0.13631121904357812,
+      "lateral_shift_sign": 1.0,
+      "pitch_kp": 2.4628258200475694,
+      "roll_kp": -2.475021840098583,
+      "step_freq_hz": 0.5897110688953764,
+      "phase_offset": 1.5707963267948966,
+      "left_phase": 3.141592653589793,
+      "right_phase": 3.141592653589793,
+      "hip_sign_l": 1.0,
+      "hip_sign_r": 1.0,
+      "knee_rect": "abs"
+    },
+    "score": 706.8
+  },
+  "max_steps": 300,
+  "num_envs": 4,
+  "seed": 42,
+  "trials": 89
+}
