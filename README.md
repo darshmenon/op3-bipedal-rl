@@ -1,5 +1,7 @@
 # ROBOTIS OP3 Bipedal Locomotion
 
+<p align="center"><img src="demo/op3_walk_demo.gif" alt="OP3 walking and push recovery in MuJoCo" width="320"></p>
+
 PPO-based ROBOTIS OP3 walking in simulation, with a quick MuJoCo replay path
 and an Isaac Lab training track. This README is the reviewer entry point.
 
@@ -42,10 +44,10 @@ to verify the submitted walking policy.
 
 - Demos (`demo/`, recorded in keyboard-teleop mode --
   see [Keyboard Teleoperation](#keyboard-teleoperation)):
-  - `op3_push_recovery_demo.mp4` - 112s, forward walking with manually
+  - [`op3_push_recovery_demo.mp4`](https://drive.google.com/file/d/1k79SAJhUePLvJHiLouJYHg3SCrTJ2YzH/view) - 112s, forward walking with manually
     triggered push-recovery shoves.
-  - `op3_push_recovery_short_demo.mp4` - 66s, shorter take of the same.
-  - `op3_backward_demo.mp4` - 35s, backward command behavior.
+  - [`op3_push_recovery_short_demo.mp4`](https://drive.google.com/file/d/1enJFVIh4-Als44BV-0pAoSJOC_-hRHo-/view) - 66s, shorter take of the same.
+  - [`op3_backward_demo.mp4`](https://drive.google.com/file/d/1qzYIbD4tANC1o_OIVv5g-hXGavYLQWWD/view) - 35s, backward command behavior.
 - Main checkpoint: `checkpoints/op3_walk_mujoco_best.pt`.
 - PPO: `rsl_rl` `OnPolicyRunner`.
 - Quick simulator: MuJoCo 3.12.0.
